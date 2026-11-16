@@ -1,10 +1,25 @@
 import { Module } from '@nestjs/common';
-import { HttpModule } from '@nestjs/axios';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 import { UsuariosController } from './usuarios.controller';
 
 @Module({
-  imports: [HttpModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+
+    ClientsModule.register([
+      {
+        name: 'MS_USUARIOS',
+        transport: Transport.TCP,
+        options: {
+          host: '127.0.0.1',
+          port: 3001
+        },
+      },
+    ]),
+  ],
   controllers: [UsuariosController],
-  providers: [],
 })
 export class UsuariosModule {}
