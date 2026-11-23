@@ -8,14 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
+const axios_1 = require("@nestjs/axios");
 const usuarios_module_1 = require("./modules/ms-usuarios/usuarios.module");
+const clientes_controller_1 = require("./modules/ms-clientes/clientes.controller");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [usuarios_module_1.UsuariosModule],
-        controllers: [],
+        imports: [axios_1.HttpModule, usuarios_module_1.UsuariosModule],
+        controllers: [clientes_controller_1.ClientesController],
         providers: [],
     })
 ], AppModule);
