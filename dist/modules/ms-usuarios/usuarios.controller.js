@@ -19,7 +19,7 @@ const rxjs_1 = require("rxjs");
 let UsuariosController = class UsuariosController {
     constructor(httpService) {
         this.httpService = httpService;
-        this.usuariosServiceUrl = 'http://localhost:3000/usuarios';
+        this.usuariosServiceUrl = 'http://localhost:3005/usuarios';
     }
     async obtenerUsuarios() {
         const { data } = await (0, rxjs_1.firstValueFrom)(this.httpService.get(this.usuariosServiceUrl));

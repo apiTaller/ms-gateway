@@ -5,7 +5,7 @@ import { firstValueFrom } from 'rxjs';
 @Controller('usuarios')
 export class UsuariosController {
   // URL donde está corriendo tu microservicio ms-usuarios
-  private readonly usuariosServiceUrl = 'http://localhost:3000/usuarios';
+  private readonly usuariosServiceUrl = 'http://localhost:3005/usuarios';
 
   constructor(private readonly httpService: HttpService) {}
 
